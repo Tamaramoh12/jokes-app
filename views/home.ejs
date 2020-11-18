@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <p>Test home page</p>
+
+    <% jokesArray.forEach(data =>{ %>
+    <div>
+        <h2>JokeNumber: <%=data.jokeNumber%></h2>
+        <h2>Type: <%=data.type%></h2>
+        <h2>Setup: <%=data.setup%></h2>
+        <h2>Punchline: <%=data.punchline%></h2>
+
+        <form action="/toDB" method="POST">
+            <input type="hidden" name="jokeNumber" value="<%=data.jokeNumber%>">
+            <input type="hidden" name="type" value="<%=data.type%>">
+            <input type="hidden" name="setup" value="<%=data.setup%>">
+            <input type="hidden" name="punchline" value="<%=data.punchline%>">
+            <input type="submit" value="Add To DB">
+        </form>
+        <hr>
+    </div>
+    <% }); %>
+
+</body>
+
+</html>
